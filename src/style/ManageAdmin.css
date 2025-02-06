@@ -1,0 +1,115 @@
+.manage-admin-container {
+    display: flex;  /* Keeps Sidebar & Content Side by Side */
+    align-items: flex-start;  /* Align items to the top */
+    min-height: 100vh;
+}
+
+/* Ensure Content Takes Full Width */
+.manage-admin-container .content {
+    flex: 1; /* Takes the remaining width */
+    padding: 40px 20px;
+}
+
+
+/* Heading */
+.manage-admin-container h2 {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 20px;
+    color: #27272b;
+}
+
+/* Message */
+.manage-admin-container .message {
+    color: #ff4f4f;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Admin Cards */
+.manage-admin-container .admin-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 20px;
+    width: 1000px;
+}
+
+.manage-admin-container .admin-card {
+    width: 80%;
+    max-width: 800px;
+    padding: 25px;
+    background-color:#27272b;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    border: 1px solid #dce5f1;
+    text-align: left;
+}
+
+/* Card Actions */
+.manage-admin-container .card-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* Buttons */
+.manage-admin-container .edit-btn,
+.manage-admin-container .delete-btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.manage-admin-container .edit-btn {
+    background-color: transparent;
+    color: #1e3a8a;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.manage-admin-container .edit-btn:hover {
+    color: rgb(188, 188, 253);
+}
+
+.manage-admin-container .delete-btn {
+    background-color: #191919;
+    color: white;
+    transition: 0.3s;
+}
+
+.manage-admin-container .delete-btn:hover {
+    background-color: #414141;
+}
+
+/* Modal Styles */
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    width: 450px;
+}
+@media only screen and (max-width: 480px) {
+    .manage-admin-container .admin-cards{
+        width: 380px;
+    }
+}

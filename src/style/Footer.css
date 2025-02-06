@@ -1,0 +1,32 @@
+/* Footer Styling */
+.footer {
+    background-color: #1f2635e3;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px 10px;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer p {
+    margin: 0;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer {
+        font-size: 14px;
+        padding: 12px;
+    }
+}

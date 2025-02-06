@@ -1,0 +1,94 @@
+/* Container for the form */
+.create-staff-container {
+    display: flex;  /* Keeps Sidebar & Content Side by Side */
+    align-items: flex-start;  /* Align items to the top */
+    min-height: 100vh; /* Adjust if needed */
+    position: relative;
+    top: 100px;
+}
+
+
+/* Box that contains the form */
+.create-staff-box {
+  width: 350px;
+  padding: 25px;
+  background-color: #ffffff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  border: 1px solid #dce5f1;
+}
+
+/* Title inside the form box */
+.create-staff-box h2 {
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #1e3a8a;
+}
+
+/* Input field container */
+.input-group {
+  margin-bottom: 20px;
+}
+
+/* Labels for the inputs */
+label {
+  color: #4f5b66;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 5px;
+  display: block;
+  text-align: left;
+}
+
+label span {
+  position: relative;
+  top: 1.5px;
+}
+
+/* Input fields styling */
+.input-group input {
+  width: 95%;
+  padding: 12px;
+  margin-top: 5px;
+  border: 1px solid #cdd6f4;
+  border-radius: 8px;
+  background-color: #f9f9ff;
+  font-size: 14px;
+  color: #333;
+  transition: 0.4s;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #a7c7e7;
+  box-shadow: 0 0 5px rgba(68, 114, 196, 0.4);
+}
+
+/* Submit button styling */
+.create-staff-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #4a90e2;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.create-staff-btn:hover {
+  background-color: #4178be;
+}
+
+/* Error message styling */
+.error-message {
+  color: #d9534f;
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 14px;
+}

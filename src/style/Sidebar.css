@@ -1,0 +1,113 @@
+.sidebar {
+  width: 200px; 
+  background: #f0f8ff;
+  color: #1e3a8a;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  top: 0; /* Ensures sidebar starts from the top */
+  left: -220px; /* Initially hidden */
+  height: 90vh; /* Full viewport height */
+  border-radius: 0 12px 12px 0;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  transition: left 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
+  border-right: 2px solid #dce5f1;
+  z-index: 1000; /* Ensures sidebar is always on top */
+}
+
+.sidebar.open {
+  left: 0; /* Fully visible when open */
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.15);
+}
+
+.sidebar h2 {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #1e3a8a;
+}
+
+.sidebar p {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #4f5b66;
+}
+
+.logout-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #4a90e2;
+  color: white;
+  font-size: 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  background-color: #4178be;
+}
+
+.logout-btn span {
+  position: relative;
+  top: 2px;
+  right: 5px;
+}
+
+.menu-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1100; /* Ensure button is above sidebar */
+  color: #4a90e2;
+  transition: color 0.3s;
+}
+
+.menu-btn:focus {
+  outline: none;
+}
+
+.menu-btn:hover {
+  color: #1e3a8a;
+  background-color: transparent;
+}
+
+.content {
+  flex: 1;
+  padding: 30px;
+  background: #f4f8ff;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+.sidebar-open {
+  margin-left: 220px;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 600px) {
+  .sidebar {
+      position: fixed;
+      width: 200px;
+      left: -220px;
+      height: 90vh;
+      top: 20px;
+  }
+
+  .sidebar.open {
+      left: 0;
+  }
+
+  .menu-btn {
+      top: 10px;
+      left: 10px;
+      font-size: 22px;
+  }
+}
