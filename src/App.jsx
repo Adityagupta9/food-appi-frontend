@@ -8,7 +8,7 @@ import CreateStaff from './components/CreateStaff';
 import ManageStaff from './components/ManageStaff';
 import CreateUser from './components/CreateUser';
 import ManageAdmin from './components/ManageAdmin';
-import StaffDashboard from './components/staffDashboard';
+import StaffDashboard from './components/StaffDashboard';
 import StaffProfile from './components/StaffProfile';
 import Footer from './components/Footer';
 const App = ()=> {
