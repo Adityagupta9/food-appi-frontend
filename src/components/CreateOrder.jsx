@@ -94,8 +94,23 @@ const CreateOrder = () => {
           {items.map((item, index) => (
             <div key={index} className="item-row">
               <input type="text" placeholder="Item Name" value={item.name} onChange={(e) => handleItemChange(index, "name", e.target.value)} required />
-              <input type="number" placeholder="Quantity" min="1" value={item.quantity} onChange={(e) => handleItemChange(index, "quantity", e.target.value)} required />
-              <input type="number" placeholder="Price" min="0" value={item.price} onChange={(e) => handleItemChange(index, "price", e.target.value)} required />
+              <input 
+  type="number" 
+  placeholder="Quantity" 
+  min="1" 
+  value={item.quantity || ""}  // Ensure placeholder appears when empty
+  onChange={(e) => handleItemChange(index, "quantity", e.target.value)} 
+  required 
+/>
+<input 
+  type="number" 
+  placeholder="Price" 
+  min="0" 
+  value={item.price || ""} 
+  onChange={(e) => handleItemChange(index, "price", e.target.value)} 
+  required 
+/>
+
             </div>
           ))}
           <button type="button" onClick={handleAddItem}>+ Add Item</button>

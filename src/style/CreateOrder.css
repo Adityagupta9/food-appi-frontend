@@ -39,6 +39,25 @@
     display: flex;
     gap: 10px;
   }
+  .item-row input {
+    width: 100px;  /* Adjust width */
+    padding: 8px;
+    margin: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .item-row input::placeholder {
+    color: #999; /* Light gray to be visible */
+    opacity: 1; /* Ensure full opacity */
+  }
+  
+  .item-row {
+    display: flex;
+    gap: 10px; /* Ensure spacing between inputs */
+    align-items: center;
+  }
   
   .create-order-btn {
     padding: 8px;

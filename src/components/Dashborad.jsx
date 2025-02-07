@@ -127,7 +127,7 @@ const Dashboard = () => {
                 </div>
                 <div className="stats">
                   <p className="staff-count"><strong>TOTAL STAFF:</strong> {staffCount}</p>
-                  <p><strong>Total Revenue from Completed Orders:</strong> ${totalAmount}</p>
+                  <p><strong>Total Revenue from Completed Orders:</strong> ₹{totalAmount}</p>
                 </div>
               </div>
               <button className="delete-all-btn" onClick={() => setShowModal(true)}>
@@ -151,7 +151,7 @@ const Dashboard = () => {
                     <tr key={order._id}>
                       <td>{order.customerName}</td>
                       <td>{order.items.map(item => item.name).join(", ")}</td>
-                      <td>${order.totalAmount}</td>
+                      <td>₹{order.totalAmount}</td>
                       <td className={`status-${order.status.toLowerCase()}`}>{order.status}</td>
                     </tr>
                   ))}

@@ -26,7 +26,7 @@ const App = ()=> {
           <Route path="/staff/orders" element={<StaffDashboard />} />
           <Route path="/staff/profile" element={<StaffProfile />} />
         </Routes>
-        
+          
       </div>
     </Router>
   );

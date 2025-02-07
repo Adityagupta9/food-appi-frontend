@@ -14,7 +14,7 @@
 }
 
 .login-box {
-  width: 350px;
+  width: 340px;
   padding: 25px;
   background-color: #ffffff;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -77,6 +77,7 @@ label span{
   cursor: pointer;
   font-weight: bold;
   transition: 0.3s;
+  margin-top: 10px;
 }
 
 .login-btn:hover {
