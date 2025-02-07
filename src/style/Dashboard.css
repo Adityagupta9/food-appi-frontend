@@ -2,15 +2,16 @@
   display: flex;
   justify-content: center;
   height: 100vh;
-  padding: 20px;
+  padding: 20px; /* Ensure the container is scrollable */
 }
 
 .dashboard-content {
   display: flex;
   gap: 50px;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; /* Align items to the top */
   width: 113%;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
 .admin-panel {
@@ -22,6 +23,7 @@
   color: white;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
   font-family: 'Inter', sans-serif;
+  margin-bottom: 20px; /* Add margin to separate from the table */
 }
 
 .stats {
@@ -35,12 +37,13 @@
   padding: 5px;
   min-width: 130px;
   width: 130px;
-  font-family:sans-serif;
+  font-family: sans-serif;
 }
 
 .table-container {
   flex: 2;
   overflow-x: auto;
+  width: 100%; /* Ensure the table container takes full width */
 }
 
 table {
@@ -134,6 +137,7 @@ nav ul li a:hover {
   background: #e1f0f9;
   border-radius: 5px;
 }
+
 .modal {
   position: fixed;
   top: 0;
@@ -179,28 +183,32 @@ nav ul li a:hover {
   cursor: pointer;
 }
 
-
-
 @media only screen and (max-width: 600px) {
   .dashboard-container {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    height: auto; /* Adjust height for mobile */
+    padding: 10px; /* Reduce padding for mobile */
   }
 
   .dashboard-content {
     position: relative;
-    top: 100px;
+    top: 0; /* Reset top position */
     flex-direction: column;
     align-items: center;
     width: 100%;
     justify-content: center;
-    left: 2px;
+    left: 0; /* Reset left position */
   }
 
   .admin-panel {
-    width: 90%;
+    width: 100%; /* Full width on mobile */
     margin-bottom: 20px;
+  }
+
+  .table-container {
+    width: 100%; /* Full width on mobile */
   }
 
   table {
