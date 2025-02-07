@@ -17,25 +17,28 @@
     align-items: center; /* Centering the cards horizontally */
     margin-top: 20px;
     width: 1000px;
+    
   }
   
   .staff-card {
     width: 80%; /* Adjust the width for centering */
-    padding: 25px;
+    padding: 15px 13px;
     background-color: #ffffff;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
     border: 1px solid #dce5f1;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: left;
+    
     margin: 0 auto; /* Center the card horizontally */
   }
   
-  .staff-card h3 {
+  .staff-card h4 {
     margin-bottom: 15px;
     color: #1e3a8a;
     font-size: 24px;
     font-weight: 500;
+    text-align: left;
   }
   
   .card-actions {
@@ -45,7 +48,7 @@
   }
   
   .edit-btn, .delete-btn {
-    padding: 10px 15px;
+    padding: 5px 15px;
     border: none;
     border-radius: 8px;
     cursor: pointer;

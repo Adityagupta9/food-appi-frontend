@@ -128,7 +128,7 @@ const ManageStaff = () => {
           {staff.map((member) => (
             <div className="staff-card" key={member._id}>
               <div className="card-header">
-                <h3>{member.name}</h3>
+                <h4>{member.name}</h4>
                 <p><strong>Email:</strong> {member.email}</p>
                 <p><strong>Phone:</strong> {member.phone}</p>
                 <div className="card-actions">
