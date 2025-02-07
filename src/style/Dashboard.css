@@ -203,7 +203,7 @@ nav ul li a:hover {
   }
 
   .admin-panel {
-    width: 100%; /* Full width on mobile */
+    width: 80%; /* Full width on mobile */
     margin-bottom: 20px;
   }
 
