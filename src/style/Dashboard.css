@@ -215,4 +215,9 @@ nav ul li a:hover {
     width: 100%;
     overflow-x: auto;
   }
+  .dashboard-container table th{
+    font-size: 13px;
+    padding: 20px 2px;
+    text-align: center;
+  }
 }

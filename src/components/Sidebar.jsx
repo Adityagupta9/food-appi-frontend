@@ -9,7 +9,7 @@ import { IoPersonCircleOutline } from "react-icons/io5";
 import "../style/Sidebar.css";
 
 const Sidebar = ({ user, handleLogout }) => {
-  const baseURL = process.env.REACT_APP_BASEURL;
+  const baseURL = import.meta.env.REACT_APP_BASEURL;
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (

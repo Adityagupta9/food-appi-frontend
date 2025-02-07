@@ -98,6 +98,7 @@
       left: -260px;
       height: 90vh;
       top: 20px;
+      font-family: 'Poppins', sans-serif;
   }
 
   .sidebar.open {
