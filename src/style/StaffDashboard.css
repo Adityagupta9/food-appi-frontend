@@ -8,6 +8,7 @@
 
 /* Content Area */
 .staff-dashboard .content {
+    margin-top: 50px;
     flex: 1;
     max-width: 900px;  /* Limit max width */
     width: 100%;
@@ -50,15 +51,33 @@
 /* Bell Icon */
 .staff-notes-btn {
     position: absolute;
-    top: 10px;
+    top: 15px;
     right: 50px;
-    font-size: 40px;
-    background-color: transparent;
-    color: #27272b;
-    padding: 1px;
+    font-size: 42px;
+    background: linear-gradient(135deg, #0a0834, #254394); /* Gradient effect */
+    color: white;
+    padding: 10px;
     border: none;
+    border-radius: 50%; /* Make it circular */
     cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Add depth */
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.staff-notes-btn:hover {
+    transform: scale(1.05); /* Subtle hover effect */
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(135deg, #05041f, #4a90e2);
+}
+
+.staff-notes-btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
 
 .staff-notes-btn:hover {
     border: none;
