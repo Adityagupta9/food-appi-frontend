@@ -89,7 +89,7 @@ const Notes = () => {
       <div className="content">
         <div className="header">
           <button className="back-btn" onClick={() => navigate("/dashboard")}>
-            <IoArrowBack />Dashboard
+            <IoArrowBack />  
           </button>
           <h2>Manage Notes</h2>
         </div>

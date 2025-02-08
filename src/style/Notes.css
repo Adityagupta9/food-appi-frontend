@@ -38,10 +38,10 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    background: #0e2844;
-    color: white;
+    background: #0e284400;
+    color: rgb(10, 9, 35);
     border: none;
-    padding: 7px 12px;
+    padding: 2px;
     border-radius: 6px;
     font-size: 10px;
     font-weight: bold;
@@ -54,7 +54,7 @@
 }
 
 .admin-notes-container .back-btn:hover {
-    background: #0056b3;
+    background: #0057b35a;
     transform: scale(1.05);
 }
 
@@ -65,7 +65,17 @@
     gap: 10px;
     margin-bottom: 20px;
 }
-
+textarea{
+    width: 92%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    resize: none;
+    background: #fcfcfc;
+    transition: border 0.3s;
+    color: black;
+}
 .admin-notes-container .note-create textarea {
     width: 92%;
     padding: 12px;
@@ -141,10 +151,10 @@
 .admin-notes-container .save-btn,
 .admin-notes-container .cancel-btn {
     border: none;
-    padding: 8px 12px;
-    border-radius: 6px;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 12px;
     cursor: pointer;
-    font-weight: bold;
     transition: background 0.3s, transform 0.2s;
 }
 

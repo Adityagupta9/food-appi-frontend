@@ -6,8 +6,10 @@ import { IoMdPerson } from "react-icons/io";
 import { IoFastFoodSharp } from "react-icons/io5";
 import { IoIosPricetags } from "react-icons/io";
 import { RiLoader4Line } from "react-icons/ri";
+import { BsExclamationTriangleFill } from "react-icons/bs";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import Sidebar from "./Sidebar";
+import { GoNote } from "react-icons/go";
 import "../style/Dashboard.css";
 import Footer from "./Footer";
 import Notes from "./Notes";
@@ -129,13 +131,13 @@ const Dashboard = () => {
                 <div className="stats">
                   <p className="staff-count"><strong>TOTAL STAFF:</strong> {staffCount}</p>
                   <button className="notes-btn" onClick={() => navigate("/admin/notes")}>
-                    Manage Notes
+                <span className="react-icon"><GoNote/></span>  Manage Notes
                   </button>
                   <p><strong>Total Revenue from Completed Orders:</strong> ₹{totalAmount}</p>
                 </div>
               </div>
               <button className="delete-all-btn" onClick={() => setShowModal(true)}>
-                Delete All Orders
+              <span className="react-icon"><BsExclamationTriangleFill/></span>  Delete All Orders
               </button>
             </div>
 

@@ -182,7 +182,10 @@ nav ul li a:hover {
   border-radius: 5px;
   cursor: pointer;
 }
-
+.react-icon{
+  position: relative;
+  top: 2px;
+}
 @media only screen and (max-width: 600px) {
   .dashboard-container {
     flex-direction: column;

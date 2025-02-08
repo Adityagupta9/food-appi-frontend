@@ -40,7 +40,7 @@ const Sidebar = ({ user, handleLogout }) => {
                 <li><Link to="/create-order">Create Order</Link></li>
                 <li><Link to="/admin/staff-management">Create Staff</Link></li>
                 <li><Link to="/admin/manage-staff">Manage Staff</Link></li>
-                <li><Link to="/admin/create-user">Create User</Link></li>
+                <li><Link to="/admin/create-user">Create Admin</Link></li>
                 <li><Link to="/admin/manage-admin">Manage Admins</Link></li>
               </>
             ) : (

@@ -66,7 +66,7 @@ const CreateUser = () => {
       <Sidebar user={user} handleLogout={handleLogout} />
 
       <div className="create-user-box">
-        <h2>Create User</h2>
+        <h2>Create Admin</h2>
         {message && <p className="message">{message}</p>}
 
         {/* Create User Form */}
@@ -90,7 +90,6 @@ const CreateUser = () => {
           {/* Role Selection */}
           <div className="input-group">
             <select name="role" value={newUser.role} onChange={handleInputChange}>
-              <option value="staff">Staff</option>
               <option value="admin">Admin</option>
             </select>
           </div>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Sidebar from "./Sidebar";
 import "../style/StaffDashboard.css";
+import { IoNotificationsCircle } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 
 const StaffDashboard = () => {
@@ -73,14 +74,18 @@ const StaffDashboard = () => {
   return (
     <div className="staff-dashboard">
       <Sidebar user={user} handleLogout={handleLogout} />
+      
       <div className="content">
         <h2>Staff Dashboard - Manage Orders</h2>
+        <button className="staff-notes-btn" onClick={() => navigate("/staff/staffNotes")}>
+        <IoNotificationsCircle className="bell-icon" />
+      </button>
         <div className="order-cards">
           {orders.map((order) => (
             <div className="order-card" key={order._id}>
               <h3>{order.customerName}</h3>
               <p><strong>Items:</strong> {order.items.map((item) => `${item.name} x${item.quantity}`).join(", ")}</p>
-              <p><strong>Total Amount:</strong> ${order.totalAmount}</p>
+              <p><strong>Total Amount:</strong> ₹{order.totalAmount}</p>
               <p><strong>Status:</strong> <span className={`status ${order.status.toLowerCase()}`}>{order.status}</span></p>
               <p><strong>Created:</strong> {new Date(order.createdAt).toLocaleString()}</p>
               

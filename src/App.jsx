@@ -11,7 +11,14 @@ import ManageAdmin from './components/ManageAdmin';
 import StaffDashboard from './components/StaffDashboard';
 import StaffProfile from './components/StaffProfile';
 import Notes from './components/Notes';
+import StaffNotes from './components/StaffNotes';
 import Footer from './components/Footer';
+console.log(
+  "%c 🍔 Welcome to FoodAppi! 🚀\n%cDeveloped by Aditya Gupta\n📧 adityagupta9137@gmail.com",
+  "color: white; background: rgb(0, 127, 190); padding: 8px 15px; border-radius: 5px; font-size: 16px;",
+  "color:rgb(0, 127, 190); font-size: 14px; font-weight: bold;"
+);
+
 const App = ()=> {
   return (
     <Router>
@@ -27,6 +34,7 @@ const App = ()=> {
           <Route path="/staff/orders" element={<StaffDashboard />} />
           <Route path="/staff/profile" element={<StaffProfile />} />
           <Route path='/admin/notes'  element={<Notes/>}/>
+          <Route path='/staff/staffNotes' element={<StaffNotes/>}/>
         </Routes>
           
       </div>

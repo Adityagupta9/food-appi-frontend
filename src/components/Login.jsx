@@ -18,7 +18,7 @@ const Login = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -53,11 +53,13 @@ const Login = () => {
     }
   };
   
+  
 
   return (
     <div className="login-container">
       <div className="login-box">
-        <h2><span><IoPerson/></span> Login <span id="login-food-h2">FoodAppi</span></h2>
+        <h2><span id="login-food-h2">FoodAppi</span></h2>
+        <h2><span><IoPerson/></span> Login </h2>
         {error && <div className="error-message">{error}</div>}
 
         {loading ? <Spinner /> : (

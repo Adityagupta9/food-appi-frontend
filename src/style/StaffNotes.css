@@ -1,0 +1,117 @@
+.staff-notes-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px;
+    background: #f4f4f9;
+}
+
+.staff-notes-container .content {
+    width: 100%;
+    max-width: 600px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.staff-notes-container .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.staff-notes-container h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Back Button */
+.staff-notes-container .back-btn {
+    display: flex;
+    align-items: center;
+    background-color: #33333300;
+    gap: 6px;
+    color: rgb(21, 12, 52);
+    padding: 2px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.staff-notes-container .back-btn svg {
+    font-size: 23px;
+}
+
+.staff-notes-container .back-btn:hover {
+    background: #e1eaf5;
+    transform: scale(1.05);
+}
+
+/* Notes List */
+.staff-notes-container .notes-list {
+    margin-top: 10px;
+}
+
+.staff-notes-container .note-item {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    border-left: 5px solid #007bff;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.staff-notes-container .note-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.staff-notes-container .note-item p {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+    word-wrap: break-word;
+}
+
+/* No Notes */
+.staff-notes-container .no-notes {
+    color: gray;
+    font-size: 16px;
+    font-style: italic;
+}
+
+/* Bell Icon Button */
+.staff-notes-container .notes-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #ff9800;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.staff-notes-container .notes-btn .bell-icon {
+    font-size: 18px;
+}
+
+.staff-notes-container .notes-btn:hover {
+    background: #e68900;
+    transform: scale(1.05);
+}
