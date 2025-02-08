@@ -8,6 +8,7 @@ import "../style/StaffNotes.css";
 const StaffNotes = () => {
   const baseURL = import.meta.env.REACT_APP_BASEURL;
   const [notes, setNotes] = useState([]);
+  const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -30,6 +31,25 @@ const StaffNotes = () => {
     } catch (error) {
       console.error("Error fetching notes:", error);
       setNotes([]);
+    }
+  };
+  useEffect(() => {
+    fetchUserData();
+  }, []);
+
+  const fetchUserData = async () => {
+    const token = localStorage.getItem("token");
+    if (!token) return;
+    try {
+      const response = await axios.get(`${baseURL}/auth/user`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      setUser(response.data);
+      if (response.data.role !== "admin") {
+        window.location.href = "/dashboard"; // Redirect non-admin users
+      }
+    } catch (error) {
+      console.error("Error fetching user", error);
     }
   };
   const handleLogout = () => {

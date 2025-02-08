@@ -13,6 +13,7 @@ const Notes = () => {
   const [newNote, setNewNote] = useState("");
   const [editingNote, setEditingNote] = useState(null);
   const [updatedContent, setUpdatedContent] = useState("");
+  const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -72,6 +73,25 @@ const Notes = () => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     navigate("/");
+  };
+  useEffect(() => {
+    fetchUserData();
+  }, []);
+
+  const fetchUserData = async () => {
+    const token = localStorage.getItem("token");
+    if (!token) return;
+    try {
+      const response = await axios.get(`${baseURL}/auth/user`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      setUser(response.data);
+      if (response.data.role !== "admin") {
+        window.location.href = "/dashboard"; // Redirect non-admin users
+      }
+    } catch (error) {
+      console.error("Error fetching user", error);
+    }
   };
   const handleDeleteNote = async (noteId) => {
     try {
