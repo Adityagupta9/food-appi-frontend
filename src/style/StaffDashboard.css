@@ -97,7 +97,7 @@
     }
 
     .staff-dashboard .content {
-        padding: 15px;
+        padding: 5px;
     }
 
     .staff-dashboard .order-card {
@@ -107,10 +107,11 @@
 
 @media (max-width: 480px) {
     .staff-dashboard .order-card {
-        max-width: 70%;
+        max-width: 75%;
+        
     }
     .staff-dashboard .order-cards{
-        width: 100%;
+        width: 95%;
     }
     .staff-dashboard h2 {
         font-size: 22px;
