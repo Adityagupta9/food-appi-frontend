@@ -57,7 +57,7 @@ const Login = () => {
   return (
     <div className="login-container">
       <div className="login-box">
-        <h2><span><IoPerson/></span> Login to Food Appi</h2>
+        <h2><span><IoPerson/></span> Login <span id="login-food-h2">FoodAppi</span></h2>
         {error && <div className="error-message">{error}</div>}
 
         {loading ? <Spinner /> : (
@@ -72,10 +72,13 @@ const Login = () => {
             </div>
 
             {/* ✅ Google reCAPTCHA */}
+            <div style={{ transform: "scale(0.8)", transformOrigin: "0 0" }}>
             <ReCAPTCHA
-              sitekey={reCaptchaKey} // ✅ Use curly braces
+              sitekey={reCaptchaKey}
               onChange={(value) => setCaptchaValue(value)}
             />
+            </div>
+
 
 
             <button type="submit" className="login-btn">Login</button>

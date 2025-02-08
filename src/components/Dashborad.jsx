@@ -10,6 +10,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import Sidebar from "./Sidebar";
 import "../style/Dashboard.css";
 import Footer from "./Footer";
+import Notes from "./Notes";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -127,6 +128,9 @@ const Dashboard = () => {
                 </div>
                 <div className="stats">
                   <p className="staff-count"><strong>TOTAL STAFF:</strong> {staffCount}</p>
+                  <button className="notes-btn" onClick={() => navigate("/admin/notes")}>
+                    Manage Notes
+                  </button>
                   <p><strong>Total Revenue from Completed Orders:</strong> ₹{totalAmount}</p>
                 </div>
               </div>

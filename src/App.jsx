@@ -10,6 +10,7 @@ import CreateUser from './components/CreateUser';
 import ManageAdmin from './components/ManageAdmin';
 import StaffDashboard from './components/StaffDashboard';
 import StaffProfile from './components/StaffProfile';
+import Notes from './components/Notes';
 import Footer from './components/Footer';
 const App = ()=> {
   return (
@@ -25,6 +26,7 @@ const App = ()=> {
           <Route path="/admin/manage-admin" element={<ManageAdmin />} />
           <Route path="/staff/orders" element={<StaffDashboard />} />
           <Route path="/staff/profile" element={<StaffProfile />} />
+          <Route path='/admin/notes'  element={<Notes/>}/>
         </Routes>
           
       </div>

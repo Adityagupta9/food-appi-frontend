@@ -1,0 +1,199 @@
+.admin-notes-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px;
+    background: #f4f4f9; /* Light background for a premium feel */
+}
+
+.admin-notes-container .content {
+    width: 100%;
+    max-width: 600px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Header */
+.admin-notes-container .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.admin-notes-container h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Back Button */
+.admin-notes-container .back-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #0e2844;
+    color: white;
+    border: none;
+    padding: 7px 12px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.admin-notes-container .back-btn svg {
+    font-size: 18px;
+}
+
+.admin-notes-container .back-btn:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Note Creation */
+.admin-notes-container .note-create {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.admin-notes-container .note-create textarea {
+    width: 92%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    resize: none;
+    background: #fcfcfc;
+    transition: border 0.3s;
+    color: black;
+}
+
+.admin-notes-container .note-create textarea:focus {
+    border-color: #007bff00;
+    outline: none;
+}
+
+.admin-notes-container .add-btn {
+    background: #0b074d;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.admin-notes-container .add-btn:hover {
+    background: #223783;
+    transform: scale(1.05);
+}
+
+/* Notes List */
+.admin-notes-container .notes-list {
+    margin-top: 10px;
+}
+
+.admin-notes-container .note-item {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    border-left: 5px solid #007bff;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.admin-notes-container .note-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.admin-notes-container .note-item p {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+    word-wrap: break-word;
+}
+
+/* Note Actions */
+.admin-notes-container .note-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.admin-notes-container .edit-btn,
+.admin-notes-container .delete-btn,
+.admin-notes-container .save-btn,
+.admin-notes-container .cancel-btn {
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.admin-notes-container .edit-btn {
+    color: rgb(16, 34, 69);
+    font-size: 20px;
+    transition: 0.3;
+}
+
+.admin-notes-container .delete-btn {
+    color: rgb(16, 34, 69);
+    padding: 0px 10px;
+    font-size: 20px;
+    background: transparent;
+    transition: 0.3s;
+}
+
+.admin-notes-container .save-btn {
+    background: #007bff;
+    color: white;
+}
+
+.admin-notes-container .cancel-btn {
+    background: #6c757d;
+    color: white;
+}
+
+.admin-notes-container .edit-btn:hover {
+    color: #777777;
+}
+
+.admin-notes-container .delete-btn:hover {
+    color: #777777;
+    background-color: transparent;
+}
+
+.admin-notes-container .save-btn:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+.admin-notes-container .cancel-btn:hover {
+    background: #5a6268;
+    transform: scale(1.05);
+}
+
+/* No Notes */
+.admin-notes-container .no-notes {
+    color: gray;
+    font-size: 16px;
+    font-style: italic;
+}
