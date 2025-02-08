@@ -32,10 +32,13 @@ const StaffNotes = () => {
       setNotes([]);
     }
   };
-
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/");
+  };
   return (
     <div className="staff-notes-container">
-      <Sidebar />
+      <Sidebar user={user} handleLogout={handleLogout} />
       <div className="content">
         <div className="header">
           <h2>All Notes</h2>

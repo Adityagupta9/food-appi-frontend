@@ -69,7 +69,10 @@ const Notes = () => {
       console.error("Error editing note:", error);
     }
   };
-
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/");
+  };
   const handleDeleteNote = async (noteId) => {
     try {
       const token = localStorage.getItem("token");
@@ -85,7 +88,7 @@ const Notes = () => {
 
   return (
     <div className="admin-notes-container">
-      <Sidebar />
+      <Sidebar user={user} handleLogout={handleLogout} />
       <div className="content">
         <div className="header">
           <button className="back-btn" onClick={() => navigate("/dashboard")}>
