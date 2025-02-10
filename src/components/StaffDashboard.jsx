@@ -81,7 +81,9 @@ const StaffDashboard = () => {
 
       <div className="content">
         {loading ? (
-          <Spinner /> // ✅ Show Loader when data is fetching
+          <div className="loader-container">
+            <Spinner /> {/* ✅ Show Spinner while loading */}
+          </div>
         ) : (
           <>
             <h2>Staff Dashboard - Manage Orders</h2>
@@ -93,25 +95,20 @@ const StaffDashboard = () => {
                 <div className="order-card" key={order._id}>
                   <h3>{order.customerName}</h3>
                   <p>
-                    <strong>Items:</strong>{" "}
-                    {order.items.map((item) => `${item.name} x${item.quantity}`).join(", ")}
+                    <strong>Items:</strong> {order.items.map((item) => `${item.name} x${item.quantity}`).join(", ")}
                   </p>
                   <p>
                     <strong>Total Amount:</strong> ₹{order.totalAmount}
                   </p>
                   <p>
-                    <strong>Status:</strong>{" "}
-                    <span className={`status ${order.status.toLowerCase()}`}>{order.status}</span>
+                    <strong>Status:</strong> <span className={`status ${order.status.toLowerCase()}`}>{order.status}</span>
                   </p>
                   <p>
                     <strong>Created:</strong> {new Date(order.createdAt).toLocaleString()}
                   </p>
 
                   {order.status !== "Completed" && order.status !== "Cancelled" && (
-                    <select
-                      onChange={(e) => handleStatusChange(order._id, e.target.value)}
-                      value={order.status}
-                    >
+                    <select onChange={(e) => handleStatusChange(order._id, e.target.value)} value={order.status}>
                       <option value="Pending">Pending</option>
                       <option value="Processing">Processing</option>
                       <option value="Completed">Completed</option>

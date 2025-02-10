@@ -11,7 +11,8 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import Sidebar from "./Sidebar";
 import { GoNote } from "react-icons/go";
 import "../style/Dashboard.css";
-import Spinner from "./Spinner"; // ✅ Import Spinner Component
+import Footer from "./Footer";
+import Notes from "./Notes";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -117,7 +118,10 @@ const Dashboard = () => {
 
       <div className="content">
         {loading ? (
-          <Spinner /> // ✅ Show Spinner when loading
+          <div className="loader-container">
+            <div className="spinner"></div>
+            <p>Loading Dashboard...</p>
+          </div>
         ) : (
           <>
             <h2>Welcome, {user?.name}!</h2>
