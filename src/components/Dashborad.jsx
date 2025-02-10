@@ -11,70 +11,68 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import Sidebar from "./Sidebar";
 import { GoNote } from "react-icons/go";
 import "../style/Dashboard.css";
-import Footer from "./Footer";
-import Notes from "./Notes";
+import Spinner from "./Spinner"; // ✅ Import Spinner Component
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const Dashboard = () => {
   const baseURL = import.meta.env.REACT_APP_BASEURL;
   const [user, setUser] = useState(null);
+  const [currentTime, setCurrentTime] = useState(new Date());
   const [orders, setOrders] = useState([]);
   const [staffCount, setStaffCount] = useState(0);
   const [totalAmount, setTotalAmount] = useState(0);
   const [showModal, setShowModal] = useState(false);
+  const [loading, setLoading] = useState(true); // ✅ Loader State
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchUserData = async () => {
-      const token = localStorage.getItem("token");
-      if (!token) {
-        navigate("/");
-        return;
-      }
+    const fetchData = async () => {
+      setLoading(true);
       try {
-        const response = await axios.get(`${baseURL}/auth/user`, {
+        const token = localStorage.getItem("token");
+        if (!token) {
+          navigate("/");
+          return;
+        }
+        const userResponse = await axios.get(`${baseURL}/auth/user`, {
           headers: { Authorization: `Bearer ${token}` },
         });
-        setUser(response.data);
-      } catch (error) {
-        console.error("Error fetching user", error);
-        navigate("/");
-      }
-    };
+        setUser(userResponse.data);
 
-    const fetchOrders = async () => {
-      const token = localStorage.getItem("token");
-      try {
-        const response = await axios.get(`${baseURL}/admin/orders`, {
+        const ordersResponse = await axios.get(`${baseURL}/admin/orders`, {
           headers: { Authorization: `Bearer ${token}` },
         });
-        setOrders(response.data);
-        const total = response.data
-          .filter(order => order.status === "Completed")
+        setOrders(ordersResponse.data);
+
+        const total = ordersResponse.data
+          .filter((order) => order.status === "Completed")
           .reduce((sum, order) => sum + order.totalAmount, 0);
         setTotalAmount(total);
+
+        if (userResponse.data.role === "admin") {
+          const staffResponse = await axios.get(`${baseURL}/admin/staff`, {
+            headers: { Authorization: `Bearer ${token}` },
+          });
+          setStaffCount(staffResponse.data.length);
+        }
       } catch (error) {
-        console.error("Error fetching orders", error);
+        console.error("Error fetching data", error);
+        navigate("/");
+      } finally {
+        setLoading(false); // ✅ Stop loading
       }
     };
 
-    const fetchStaffCount = async () => {
-      const token = localStorage.getItem("token");
-      try {
-        const response = await axios.get(`${baseURL}/admin/staff`, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-        setStaffCount(response.data.length);
-      } catch (error) {
-        console.error("Error fetching staff", error);
-      }
-    };
+    fetchData();
+  }, [navigate]);
 
-    fetchUserData();
-    fetchOrders();
-    if (user?.role === "admin") fetchStaffCount();
-  }, [navigate, user?.role]);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -102,10 +100,10 @@ const Dashboard = () => {
     datasets: [
       {
         data: [
-          orders.filter(order => order.status === "Pending").length,
-          orders.filter(order => order.status === "Processing").length,
-          orders.filter(order => order.status === "Completed").length,
-          orders.filter(order => order.status === "Cancelled").length
+          orders.filter((order) => order.status === "Pending").length,
+          orders.filter((order) => order.status === "Processing").length,
+          orders.filter((order) => order.status === "Completed").length,
+          orders.filter((order) => order.status === "Cancelled").length,
         ],
         backgroundColor: ["#007BFF", "#00A8E8", "#87CEEB", "#D4E4F7"],
         hoverOffset: 4,
@@ -118,64 +116,112 @@ const Dashboard = () => {
       <Sidebar user={user} handleLogout={handleLogout} />
 
       <div className="content">
-        <h2>Welcome, {user?.name}!</h2>
+        {loading ? (
+          <Spinner /> // ✅ Show Spinner when loading
+        ) : (
+          <>
+            <h2>Welcome, {user?.name}!</h2>
 
-        {user?.role === "admin" && (
-          <div className="dashboard-content">
-            <div className="admin-panel">
-              <h3>Admin Overview</h3>
-              <div className="admin-overview">
-                <div className="chart-container">
-                  <Doughnut data={chartData} />
-                </div>
-                <div className="stats">
-                  <p className="staff-count"><strong>TOTAL STAFF:</strong> {staffCount}</p>
-                  <button className="notes-btn" onClick={() => navigate("/admin/notes")}>
-                <span className="react-icon"><GoNote/></span>  Manage Notes
+            {user?.role === "admin" && (
+              <div className="dashboard-content">
+                <div className="admin-panel">
+                  <h3>Admin Overview</h3>
+                  <div className="admin-overview">
+                    <div className="chart-container">
+                      <Doughnut data={chartData} />
+                    </div>
+                    <div className="stats">
+                      <p className="staff-count">
+                        <span className="digital-clock">
+                          {currentTime.toLocaleTimeString([], {
+                            hour: "2-digit",
+                            minute: "2-digit",
+                            second: "2-digit",
+                          })}
+                        </span>
+                        TOTAL STAFF: {staffCount}
+                      </p>
+
+                      <button className="notes-btn" onClick={() => navigate("/admin/notes")}>
+                        <span className="react-icon">
+                          <GoNote />
+                        </span>{" "}
+                        Manage Notes
+                      </button>
+
+                      <p>
+                        <strong>Total Revenue from Completed Orders:</strong> ₹{totalAmount}
+                      </p>
+                    </div>
+                  </div>
+                  <button className="delete-all-btn" onClick={() => setShowModal(true)}>
+                    <span className="react-icon">
+                      <BsExclamationTriangleFill />
+                    </span>{" "}
+                    Delete All Orders
                   </button>
-                  <p><strong>Total Revenue from Completed Orders:</strong> ₹{totalAmount}</p>
+                </div>
+
+                <div className="table-container">
+                  <h3>Orders</h3>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>
+                          <span>
+                            <IoMdPerson />
+                          </span>{" "}
+                          Customer
+                        </th>
+                        <th>
+                          <span>
+                            <IoFastFoodSharp />
+                          </span>{" "}
+                          Items
+                        </th>
+                        <th>
+                          <span>
+                            <IoIosPricetags />
+                          </span>{" "}
+                          Total
+                        </th>
+                        <th>
+                          <span>
+                            <RiLoader4Line />
+                          </span>{" "}
+                          Status
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {orders.map((order) => (
+                        <tr key={order._id}>
+                          <td>{order.customerName}</td>
+                          <td>{order.items.map((item) => item.name).join(", ")}</td>
+                          <td>₹{order.totalAmount}</td>
+                          <td className={`status-${order.status.toLowerCase()}`}>{order.status}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
               </div>
-              <button className="delete-all-btn" onClick={() => setShowModal(true)}>
-              <span className="react-icon"><BsExclamationTriangleFill/></span>  Delete All Orders
-              </button>
-            </div>
-
-            <div className="table-container">
-              <h3>Orders</h3>
-              <table>
-                <thead>
-                  <tr>
-                    <th><span><IoMdPerson /></span> Customer</th>
-                    <th><span><IoFastFoodSharp /></span> Items</th>
-                    <th><span><IoIosPricetags /></span> Total</th>
-                    <th><span><RiLoader4Line /></span> Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {orders.map(order => (
-                    <tr key={order._id}>
-                      <td>{order.customerName}</td>
-                      <td>{order.items.map(item => item.name).join(", ")}</td>
-                      <td>₹{order.totalAmount}</td>
-                      <td className={`status-${order.status.toLowerCase()}`}>{order.status}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
+            )}
+          </>
         )}
       </div>
 
-      {/* Modal for Confirmation */}
       {showModal && (
         <div className="modal">
           <div className="modal-content">
             <h3>Are you sure you want to delete all orders?</h3>
             <div className="modal-actions">
-              <button className="confirm-btn" onClick={handleDeleteAllOrders}>Yes, Delete</button>
-              <button className="cancel-btn" onClick={() => setShowModal(false)}>No, Cancel</button>
+              <button className="confirm-btn" onClick={handleDeleteAllOrders}>
+                Yes, Delete
+              </button>
+              <button className="cancel-btn" onClick={() => setShowModal(false)}>
+                No, Cancel
+              </button>
             </div>
           </div>
         </div>

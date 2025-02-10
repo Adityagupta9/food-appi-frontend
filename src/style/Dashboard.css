@@ -4,7 +4,10 @@
   height: 100vh;
   padding: 20px; /* Ensure the container is scrollable */
 }
-
+.dashboard-container h2{
+  color: #1d316b;
+  font-family: 'Poppins', sans-serif;
+}
 .dashboard-content {
   display: flex;
   gap: 50px;
@@ -54,6 +57,61 @@ table {
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+.staff-count {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  font-weight: bold;
+  color: #5adfdf;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  padding: 12px 10px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  font-family: "Orbitron", sans-serif;
+  gap: 20px;
+  width: 90%;
+}
+
+/* Digital Clock Styling */
+.digital-clock {
+  font-size: 15px;
+  font-weight: bold;
+  color: #00bbff;
+  background: black;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-family: "Orbitron", sans-serif;
+  margin-right: 10px;
+  box-shadow: 0 0 10px rgba(0, 208, 255, 0.7);
+}
+
+/* Notes Button */
+.notes-btn {
+  display: flex;
+  align-items: center;
+  background: #091420;
+  color: white;
+  padding: 12px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.notes-btn:hover {
+  background: #081d33;
+  transform: scale(1.05);
+}
+
+/* Icon Styling */
+.react-icon {
+  font-size: 22px;
+  margin-right: 8px;
+  color: #ffdd57;
 }
 
 th, td {
@@ -186,6 +244,28 @@ nav ul li a:hover {
   position: relative;
   top: 2px;
 }
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.spinner {
+  width: 100px;
+  height: 100px;
+  border: 6px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #0c1160;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 @media only screen and (max-width: 600px) {
   .dashboard-container {
     flex-direction: column;

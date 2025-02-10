@@ -4,7 +4,7 @@ import { Rings } from "react-loader-spinner";
 const Spinner = () => {
   return (
     <div className="spinner-container">
-      <Rings height="80" width="80" color="#4a90e2" />
+      <Rings height="180" width="180" color="#4a90e2" />
     </div>
   );
 };
