@@ -84,7 +84,7 @@ const CreateUser = () => {
           </div>
 
           <div className="input-group">
-            <input type="password" name="password" placeholder="Password" value={newUser.password} onChange={handleInputChange} required />
+            <input type="password" name="password" placeholder="Password " value={newUser.password} onChange={handleInputChange} required />
           </div>
 
           {/* Role Selection */}
