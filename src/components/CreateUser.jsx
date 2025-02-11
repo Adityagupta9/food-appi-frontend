@@ -13,7 +13,7 @@ const CreateUser = () => {
     email: "",
     phone: "",
     password: "",
-    role: "staff", // Default role
+    role: "admin", // Default role
   });
   const [message, setMessage] = useState("");
 
@@ -49,7 +49,7 @@ const CreateUser = () => {
         headers: { Authorization: `Bearer ${token}` },
       });
       setMessage("User created successfully!");
-      setNewUser({ name: "", email: "", phone: "", password: "", role: "staff" });
+      setNewUser({ name: "", email: "", phone: "", password: "", role: "admin" });
     } catch (error) {
       setMessage("Error creating user. Try again.");
       console.error("Error creating user", error);
