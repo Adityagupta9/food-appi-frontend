@@ -1,2 +1,9 @@
-let myFunc = (a, b, c) => (a % 100 === 0 ? a / b / c : false);
-console.log(myFunc(100, 50, 10)); 
+function myF(a, b, c) {
+    if (a + b + c > 100) {
+        return a / b / c;
+    } else {
+        return false;
+    }
+}
+
+console.log(myF(100, 50, 10)); 
