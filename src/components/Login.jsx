@@ -59,7 +59,7 @@ const Login = () => {
     <div className="login-container">
       <div className="login-box">
         <h2><span id="login-food-h2">FoodAppi</span></h2>
-        <h2><span><IoPerson/></span> Login </h2>
+        <h2><span id="login-icon"><IoPerson/></span> Login </h2>
         {error && <div className="error-message">{error}</div>}
 
         {loading ? <Spinner /> : (

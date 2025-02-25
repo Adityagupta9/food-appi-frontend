@@ -270,7 +270,6 @@ nav ul li a:hover {
   .dashboard-container {
     flex-direction: column;
     align-items: center;
-    text-align: center;
     height: auto; /* Adjust height for mobile */
     padding: 10px; /* Reduce padding for mobile */
   }

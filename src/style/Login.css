@@ -34,7 +34,10 @@
   color: #1e3a8a;
 
 }
-
+#login-icon{
+  position: relative;
+  top: 2px;
+}
 .input-group {
   margin-bottom: 20px;
 }
