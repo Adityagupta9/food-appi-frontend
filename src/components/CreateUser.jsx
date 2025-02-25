@@ -48,7 +48,7 @@ const CreateUser = () => {
       await axios.post(`${baseURL}/auth/register`, newUser, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      setMessage("User created successfully!");
+      setMessage("Admin created successfully!");
       setNewUser({ name: "", email: "", phone: "", password: "", role: "admin" });
     } catch (error) {
       setMessage("Error creating admin. Try again.");
