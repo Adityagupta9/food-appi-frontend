@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { CgMenuLeft } from "react-icons/cg";
 import { IoPersonCircleOutline, IoCloseSharp } from "react-icons/io5";
 import { RiLogoutBoxLine } from "react-icons/ri";
+import { AiOutlineLineChart } from "react-icons/ai";
 import { MdOutlineAdminPanelSettings, MdExpandMore, MdExpandLess } from "react-icons/md";
 import "../style/Sidebar.css";
 
@@ -39,7 +40,7 @@ const Sidebar = ({ user, handleLogout }) => {
         <nav>
           <ul>
             <li>
-              <Link to="/dashboard">Dashboard</Link>
+              <Link to="/dashboard"><span id="slidebar-dashboard-icon"><AiOutlineLineChart /></span> Dashboard</Link>
             </li>
 
             {/* Admin Section */}

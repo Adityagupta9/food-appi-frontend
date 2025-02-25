@@ -37,7 +37,10 @@
   font-weight: 500;
   color: #4f5b66;
 }
-
+#slidebar-dashboard-icon{
+  position: relative;
+  top: 2px;
+}
 .logout-btn {
   width: 100%;
   padding: 10px;
