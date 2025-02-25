@@ -91,6 +91,49 @@
 .sidebar-open {
   margin-left: 220px;
 }
+.expandable {
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: color 0.3s ease-in-out;
+}
+
+.expandable:hover {
+  color: #1e3a8a;
+}
+
+.submenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out, padding 0.3s ease-out;
+  padding: 0;
+}
+
+.submenu.open {
+  max-height: 150px; /* Adjust based on content */
+  padding: 5px 0;
+}
+
+
+.submenu li {
+  padding: 3px 0;
+}
+
+.submenu li a {
+  color: #83b1dd;
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.submenu li a:hover {
+  color: #1e3a8a;
+}
+
 
 /* Responsive Design */
 @media only screen and (max-width: 600px) {

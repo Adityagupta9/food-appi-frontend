@@ -1,25 +1,28 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { CgMenuLeft } from "react-icons/cg";
-import { IoPersonSharp } from "react-icons/io5";
-import { IoCloseSharp } from "react-icons/io5";
+import { IoPersonCircleOutline, IoCloseSharp } from "react-icons/io5";
 import { RiLogoutBoxLine } from "react-icons/ri";
-import { MdOutlineAdminPanelSettings } from "react-icons/md";
-import { IoPersonCircleOutline } from "react-icons/io5";
+import { MdOutlineAdminPanelSettings, MdExpandMore, MdExpandLess } from "react-icons/md";
 import "../style/Sidebar.css";
 
 const Sidebar = ({ user, handleLogout }) => {
-  const baseURL = import.meta.env.REACT_APP_BASEURL;
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [adminOpen, setAdminOpen] = useState(false);
+  const [staffOpen, setStaffOpen] = useState(false);
+  const [ordersOpen, setOrdersOpen] = useState(false);
 
   return (
     <>
+      {/* Menu Button */}
       <button className="menu-btn" onClick={() => setSidebarOpen(!sidebarOpen)}>
         {sidebarOpen ? <IoCloseSharp size={30} /> : <CgMenuLeft size={30} />}
       </button>
 
+      {/* Sidebar */}
       <div className={`sidebar ${sidebarOpen ? "open" : ""}`}>
-        <h2>Food Appi</h2>
+        <h2>FoodAppi</h2>
+        
         <p>
           {user?.role === "admin" ? (
             <>
@@ -32,26 +35,42 @@ const Sidebar = ({ user, handleLogout }) => {
           )}
         </p>
 
+        {/* Navigation Menu */}
         <nav>
           <ul>
-            {user?.role === "admin" ? (
-              <>
-                <li><Link to="/dashboard">Dashboard</Link></li>
-                <li><Link to="/create-order">Create Order</Link></li>
-                <li><Link to="/admin/staff-management">Create Staff</Link></li>
-                <li><Link to="/admin/manage-staff">Manage Staff</Link></li>
-                <li><Link to="/admin/create-user">Create Admin</Link></li>
-                <li><Link to="/admin/manage-admin">Manage Admins</Link></li>
-              </>
-            ) : (
-              <>
-                <li><Link to="/staff/orders">Orders</Link></li>
-                <li><Link to="/staff/profile"><IoPersonSharp/>Your Account</Link></li>
-              </>
-            )}
+            <li>
+              <Link to="/dashboard">Dashboard</Link>
+            </li>
+
+            {/* Admin Section */}
+            <li onClick={() => setAdminOpen(!adminOpen)} className="expandable">
+              Admin {adminOpen ? <MdExpandLess /> : <MdExpandMore />}
+            </li>
+            <ul className={`submenu ${adminOpen ? "open" : ""}`}>
+              <li><Link to="/admin/create-user">Create Admin</Link></li>
+              <li><Link to="/admin/manage-admin">Manage Admins</Link></li>
+            </ul>
+
+            {/* Staff Section */}
+            <li onClick={() => setStaffOpen(!staffOpen)} className="expandable">
+              Staff {staffOpen ? <MdExpandLess /> : <MdExpandMore />}
+            </li>
+            <ul className={`submenu ${staffOpen ? "open" : ""}`}>
+              <li><Link to="/admin/staff-management">Create Staff</Link></li>
+              <li><Link to="/admin/manage-staff">Manage Staff</Link></li>
+            </ul>
+
+            {/* Orders Section */}
+            <li onClick={() => setOrdersOpen(!ordersOpen)} className="expandable">
+              Orders {ordersOpen ? <MdExpandLess /> : <MdExpandMore />}
+            </li>
+            <ul className={`submenu ${ordersOpen ? "open" : ""}`}>
+              <li><Link to="/create-order">Create Order</Link></li>
+            </ul>
           </ul>
         </nav>
 
+        {/* Logout Button */}
         <button className="logout-btn" onClick={handleLogout}>
           <span><RiLogoutBoxLine /></span> Logout
         </button>
