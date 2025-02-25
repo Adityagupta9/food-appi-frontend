@@ -51,8 +51,8 @@ const CreateUser = () => {
       setMessage("User created successfully!");
       setNewUser({ name: "", email: "", phone: "", password: "", role: "admin" });
     } catch (error) {
-      setMessage("Error creating user. Try again.");
-      console.error("Error creating user", error);
+      setMessage("Error creating admin. Try again.");
+      console.error("Error creating admin", error);
     }
   };
   const handleLogout = () => {
@@ -95,7 +95,7 @@ const CreateUser = () => {
           </div>
 
           <button type="submit" className="create-user-btn">
-            Create User
+            Create Admin
           </button>
         </form>
       </div>
