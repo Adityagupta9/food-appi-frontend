@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { CgMenuLeft } from "react-icons/cg";
-import { IoPersonCircleOutline, IoCloseSharp } from "react-icons/io5";
+import { IoPersonCircleOutline, IoPersonSharp, IoCloseSharp } from "react-icons/io5";
 import { RiLogoutBoxLine } from "react-icons/ri";
 import { AiOutlineLineChart } from "react-icons/ai";
 import { MdOutlineAdminPanelSettings, MdExpandMore, MdExpandLess } from "react-icons/md";
@@ -23,7 +23,7 @@ const Sidebar = ({ user, handleLogout }) => {
       {/* Sidebar */}
       <div className={`sidebar ${sidebarOpen ? "open" : ""}`}>
         <h2>FoodAppi</h2>
-        
+
         <p>
           {user?.role === "admin" ? (
             <>
@@ -39,35 +39,46 @@ const Sidebar = ({ user, handleLogout }) => {
         {/* Navigation Menu */}
         <nav>
           <ul>
-            <li>
-              <Link to="/dashboard"><span id="slidebar-dashboard-icon"><AiOutlineLineChart /></span> Dashboard</Link>
-            </li>
+            {user?.role === "admin" ? (
+              <>
+                <li>
+                  <Link to="/dashboard">
+                    <span id="slidebar-dashboard-icon"><AiOutlineLineChart /></span> Dashboard
+                  </Link>
+                </li>
 
-            {/* Admin Section */}
-            <li onClick={() => setAdminOpen(!adminOpen)} className="expandable">
-              Admin {adminOpen ? <MdExpandLess /> : <MdExpandMore />}
-            </li>
-            <ul className={`submenu ${adminOpen ? "open" : ""}`}>
-              <li><Link to="/admin/create-user">Create Admin</Link></li>
-              <li><Link to="/admin/manage-admin">Manage Admins</Link></li>
-            </ul>
+                {/* Admin Section */}
+                <li onClick={() => setAdminOpen(!adminOpen)} className="expandable">
+                  Admin {adminOpen ? <MdExpandLess /> : <MdExpandMore />}
+                </li>
+                <ul className={`submenu ${adminOpen ? "open" : ""}`}>
+                  <li><Link to="/admin/create-user">Create Admin</Link></li>
+                  <li><Link to="/admin/manage-admin">Manage Admins</Link></li>
+                </ul>
 
-            {/* Staff Section */}
-            <li onClick={() => setStaffOpen(!staffOpen)} className="expandable">
-              Staff {staffOpen ? <MdExpandLess /> : <MdExpandMore />}
-            </li>
-            <ul className={`submenu ${staffOpen ? "open" : ""}`}>
-              <li><Link to="/admin/staff-management">Create Staff</Link></li>
-              <li><Link to="/admin/manage-staff">Manage Staff</Link></li>
-            </ul>
+                {/* Staff Section */}
+                <li onClick={() => setStaffOpen(!staffOpen)} className="expandable">
+                  Staff {staffOpen ? <MdExpandLess /> : <MdExpandMore />}
+                </li>
+                <ul className={`submenu ${staffOpen ? "open" : ""}`}>
+                  <li><Link to="/admin/staff-management">Create Staff</Link></li>
+                  <li><Link to="/admin/manage-staff">Manage Staff</Link></li>
+                </ul>
 
-            {/* Orders Section */}
-            <li onClick={() => setOrdersOpen(!ordersOpen)} className="expandable">
-              Orders {ordersOpen ? <MdExpandLess /> : <MdExpandMore />}
-            </li>
-            <ul className={`submenu ${ordersOpen ? "open" : ""}`}>
-              <li><Link to="/create-order">Create Order</Link></li>
-            </ul>
+                {/* Orders Section */}
+                <li onClick={() => setOrdersOpen(!ordersOpen)} className="expandable">
+                  Orders {ordersOpen ? <MdExpandLess /> : <MdExpandMore />}
+                </li>
+                <ul className={`submenu ${ordersOpen ? "open" : ""}`}>
+                  <li><Link to="/create-order">Create Order</Link></li>
+                </ul>
+              </>
+            ) : (
+              <>
+                <li><Link to="/staff/orders">Orders</Link></li>
+                <li><Link to="/staff/profile"><IoPersonSharp /> Your Account</Link></li>
+              </>
+            )}
           </ul>
         </nav>
 

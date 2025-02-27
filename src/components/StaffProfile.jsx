@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { RiContactsLine } from "react-icons/ri";
+import { FaRegUser } from "react-icons/fa";
 import Sidebar from "./Sidebar"; // Sidebar component
 import "../style/StaffProfile.css";
 
@@ -37,7 +37,7 @@ const StaffProfile = () => {
     <div className="staff-profile-container">
       <Sidebar user={user} handleLogout={handleLogout} />
       <div className="profile-content">
-        <h2><RiContactsLine /> My Profile</h2>
+        <h2><span><FaRegUser /></span> My Profile</h2>
         {user ? (
           <div className="profile-card">
             <p><strong>Name:</strong> {user.name}</p>

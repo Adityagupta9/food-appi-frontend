@@ -2,21 +2,22 @@
 .staff-dashboard {
     display: flex;
     min-height: 100vh;
-    justify-content: center;  /* Center the content */
-    align-items: center;  /* Vertically center */
+    justify-content: center; /* Center the content */
+    align-items: center; /* Vertically center */
+   /* Classic Soft Beige Background */
 }
 
 /* Content Area */
 .staff-dashboard .content {
     margin-top: 50px;
     flex: 1;
-    max-width: 900px;  /* Limit max width */
+    max-width: 900px; /* Limit max width */
     width: 100%;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;  /* Ensure center alignment */
+    justify-content: center; /* Ensure center alignment */
     text-align: center;
 }
 
@@ -31,21 +32,23 @@
 
 /* Individual Order Card */
 .staff-dashboard .order-card {
-    background: #27272b;
+    background: #f8faff; /* Classic Off-White */
     width: 100%;
     max-width: 600px; /* Ensure proper width */
     padding: 25px;
     border-radius: 12px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.15);
     transition: 0.3s;
     font-family: 'Poppins', sans-serif;
-    border-left: 8px solid #4a90e2;
+    border-left: 8px solid #3b5d8a; /* Deep Brown-Gold Accent */
     text-align: left;
-    
+    color: #3c2f2f; /* Rich Dark Brown */
 }
 
+/* Hover Effect */
 .staff-dashboard .order-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Bell Icon */
@@ -54,7 +57,7 @@
     top: 15px;
     right: 50px;
     font-size: 42px;
-    background: linear-gradient(135deg, #0a0834, #254394); /* Gradient effect */
+    background: linear-gradient(135deg, #0081f2, #003979); /* Vintage Brown Gradient */
     color: white;
     padding: 10px;
     border: none;
@@ -70,7 +73,7 @@
 .staff-notes-btn:hover {
     transform: scale(1.05); /* Subtle hover effect */
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
-    background: linear-gradient(135deg, #05041f, #4a90e2);
+    background: linear-gradient(135deg, #0c4c55, #041d2b);
 }
 
 .staff-notes-btn:active {
@@ -78,37 +81,36 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-
-.staff-notes-btn:hover {
-    border: none;
-}
+/* Order Status */
 .staff-dashboard .status {
     font-weight: bold;
     padding: 3px 14px;
     border-radius: 3px;
     display: inline-block;
     font-size: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.2); /* Subtle Border */
 }
 
 .staff-dashboard .status.pending {
-    background-color: #ffcc00;
+    background-color: #e4b429;
     color: black;
 }
 
 .staff-dashboard .status.processing {
-    background-color: #007bff;
+    background-color: #2a6db0;
     color: white;
 }
 
 .staff-dashboard .status.completed {
-    background-color: #28a745;
+    background-color: #2f8245;
     color: white;
 }
 
 .staff-dashboard .status.cancelled {
-    background-color: #c30013;
+    background-color: #9e1c24;
     color: white;
 }
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .staff-dashboard {
@@ -127,11 +129,12 @@
 @media (max-width: 480px) {
     .staff-dashboard .order-card {
         max-width: 75%;
-        
     }
-    .staff-dashboard .order-cards{
+    
+    .staff-dashboard .order-cards {
         width: 95%;
     }
+
     .staff-dashboard h2 {
         font-size: 22px;
     }

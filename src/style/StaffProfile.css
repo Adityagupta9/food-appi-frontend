@@ -11,47 +11,55 @@
 /* Profile Content */
 .profile-content {
   text-align: center;
-  background: #27272b;
-  padding: 25px;
+  background: #ffffff; /* Classic White */
+  padding: 30px;
   border-radius: 12px;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-  width: 540px;
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1);
+  width: 560px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 2px solid #8aa8c9; /* Light Blue Border */
 }
-
-/* Profile Card */
+.profile-content h2 span{
+  position: relative;
+  top: 2px;
+}
 .profile-card {
-  background: #1c1c1e;
-  padding: 20px;
-  border-radius: 8px;
+  background: #eef3f8; /* Soft Light Blue */
+  padding: 22px;
+  border-radius: 10px;
   text-align: left;
-  color: white;
+  color: #2c3e50; /* Deep Blue-Gray for Classic Look */
   font-family: 'Poppins', sans-serif;
   width: 100%;
-  max-width: 500px;
+  max-width: 520px;
+  border: 1px solid #a5b8d0; /* Subtle Light Blue Border */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .profile-card p {
   font-size: 18px;
-  margin-bottom: 10px;
-  border-bottom: 1px solid #4a90e2;
-  padding-bottom: 5px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #8aa8c9; /* Light Blue Underline */
+  padding-bottom: 6px;
 }
 
+/* Profile Title */
 h2 {
-  font-size: 26px;
-  color: #4a90e2;
-  margin-bottom: 15px;
+  font-size: 28px;
+  color: #3b5d81; /* Muted Deep Blue */
+  margin-bottom: 18px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
 }
 
 /* Responsive Design */
 @media only screen and (max-width: 600px) {
   .profile-content {
-    width: 110%;
-    max-width: 110%;
-    padding: 20px;
+    width: 100%;
+    max-width: 90%;
+    padding: 25px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -59,6 +67,6 @@ h2 {
 
   .profile-card {
     width: 100%;
-    max-width: 90%;
+    max-width: 95%;
   }
 }
